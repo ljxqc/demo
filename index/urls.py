@@ -12,5 +12,8 @@ urlpatterns = [
     path('download.html', views.download),
     path('login.html', views.login),
     path('index/', views.ProductList.as_view()),
-    path('index/<id>.html', views.ProductList.as_view(), {'name': 'phone'})
+    path('index/<id>.html', views.ProductList.as_view(), {'name': 'phone'}),
+
+    path('index/temp_inherit', views.temp_inherit, name='temp_inherit'),
+    path('index/def_filter', views.defined_filter)
 ]

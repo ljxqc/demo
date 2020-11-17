@@ -1,0 +1,13 @@
+{% load myfilter %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title | myrepalce:'首页:我的首页' }}</title>
+</head>
+<body>
+<p>this is a user-defined filter demo !</p>
+<p>替换前：{{ title }}</p>
+<p>替换后：{{ title | myrepalce:'首页:我的首页' }}</p>
+</body>
+</html>

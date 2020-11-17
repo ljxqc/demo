@@ -17,11 +17,18 @@ def index(request):
     type_list = Product.objects.values('type').distinct()
     name_list = Product.objects.values('name', 'type')
     title = '首页'
-    return render(request, 'index.html',context=locals(), status=200)  # 用locals() 代替context
+    return render(request, 'index.html', context=locals(), status=200)  # 用locals() 代替context
 
+def temp_inherit(request):
+    return render(request, 'index_temp_inherit.html')
+
+def defined_filter(request):
+
+    return render(request, 'index_filter.html', context={'title': '首页'})
 
 def mydate(request, year, month, day):
     return HttpResponse(f'{str(year)}/{str(month)}/{str(day)}')
+
 
 def myyear(request, year):
     return render(request, 'myyear.html')
@@ -66,3 +73,4 @@ class ProductList(ListView):
         context = super(ProductList, self).get_context_data(**kwargs)
         context['name_list'] = Product.objects.values('name', 'type')
         return context
+
