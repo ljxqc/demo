@@ -56,21 +56,22 @@ def login(request):
         return HttpResponse('username is ' + name)
     # return redirect('http://127.0.0.1:8000/')
 
+# 通用视图
+# class ProductList(ListView):
+#     context_object_name = 'type_list'
+#     template_name = 'index_view.html'
+#     queryset = Product.objects.values('type_name').distinct()
+#
+#     def get_queryset(self):
+#         print(self.kwargs['id'])
+#         print(self.kwargs['name'])
+#         print(self.request.method)
+#         type_list = Product.objects.values('type_name').distinct()
+#         return type_list
+#
+#     def get_context_data(self, **kwargs):
+#         context = super(ProductList, self).get_context_data(**kwargs)
+#         context['name_list'] = Product.objects.values('name', 'type_name')
+#         return context
 
-class ProductList(ListView):
-    context_object_name = 'type_list'
-    template_name = 'index_view.html'
-    queryset = Product.objects.values('type').distinct()
-
-    def get_queryset(self):
-        print(self.kwargs['id'])
-        print(self.kwargs['name'])
-        print(self.request.method)
-        type_list = Product.objects.values('type').distinct()
-        return type_list
-
-    def get_context_data(self, **kwargs):
-        context = super(ProductList, self).get_context_data(**kwargs)
-        context['name_list'] = Product.objects.values('name', 'type')
-        return context
 

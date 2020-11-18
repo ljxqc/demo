@@ -11,8 +11,8 @@ urlpatterns = [
     re_path('dict/(?P<year>[0-9]{4})/', views.myyear_dict, {'month': '05'}, name='myyear_dict', ),  # 设置额外参数（字典）
     path('download.html', views.download),
     path('login.html', views.login),
-    path('index/', views.ProductList.as_view()),
-    path('index/<id>.html', views.ProductList.as_view(), {'name': 'phone'}),
+    # path('index/', views.ProductList.as_view()),
+    # path('index/<id>.html', views.ProductList.as_view(), {'name': 'phone'}),
 
     path('index/temp_inherit', views.temp_inherit, name='temp_inherit'),
     path('index/def_filter', views.defined_filter)
