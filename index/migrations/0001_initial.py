@@ -16,6 +16,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.IntegerField(primary_key=1, serialize=False)),
                 ('name', models.CharField(max_length=50)),
+                ('weight', models.CharField(max_length=20)),
+                ('size', models.CharField(max_length=20)),
                 ('type', models.CharField(max_length=20)),
             ],
         ),

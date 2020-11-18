@@ -83,19 +83,19 @@ WSGI_APPLICATION = 'MyDjango.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 # 数据库配置
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # Django 提供4种数据库引擎
-        # 'ENGINE': 'django.db.backends.mysql',
-        # 'ENGINE': 'django.db.backends.postgresql',
-        # 'ENGINE': 'django.db.backends.oracle',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',  # Django 提供4种数据库引擎
+    #     # 'ENGINE': 'django.db.backends.mysql',
+    #     # 'ENGINE': 'django.db.backends.postgresql',
+    #     # 'ENGINE': 'django.db.backends.oracle',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # },
     # 设置多个数据库，添加多个字典键值对
-    'MyDjango': {
+    'default': {
         'ENGINE': 'django.db.backends.mysql',  # 数据库引擎
         'NAME': 'django_db',  # 数据库名
         'USER': 'root',  # 用户
-        'PASSWORD': '1234',  # 密码
+        'PASSWORD': 'dbsours',  # 密码
         'HOST': '127.0.0.1',  # 数据库地址
         'PORT': '3306',  # 数据库端口
     },
