@@ -15,5 +15,7 @@ urlpatterns = [
     # path('index/<id>.html', views.ProductList.as_view(), {'name': 'phone'}),
 
     path('index/temp_inherit', views.temp_inherit, name='temp_inherit'),
-    path('index/def_filter', views.defined_filter)
+    path('index/def_filter', views.defined_filter),
+    path('index/sql_crud', views.sql_crud),
+
 ]

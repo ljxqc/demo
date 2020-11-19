@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Type(models.Model):
     id = models.AutoField(primary_key=True)
-    type_name = models.CharField(max_length=20)
+    type_name = models.CharField(max_length=20, )
 
 class Product(models.Model):
     id = models.AutoField(primary_key=True)
@@ -12,6 +12,16 @@ class Product(models.Model):
     size = models.CharField(max_length=20)
     type = models.ForeignKey(Type, on_delete=models.CASCADE)
 
+class Province(models.Model):
+    name = models.CharField(max_length=10)
+
+class City(models.Model):
+    name = models.CharField(max_length=10)
+    province = models.ForeignKey(Province, on_delete=models.CASCADE)
+
+class Person(models.Model):
+    name = models.CharField(max_length=10)
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
 
 
 # # 一对一关系
