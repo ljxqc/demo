@@ -5,6 +5,7 @@ from django.db.models import Q, F, Count, Sum
 from django.db.models.functions import Concat
 from django.db.models import Value
 from django.views.generic import ListView
+from .form import *
 # Create your views here.
 
 
@@ -93,10 +94,48 @@ def sql_crud(request):
     return HttpResponse('增删改查完毕，请查看结果！')
 
 
+def idx_form(request):
+    # product = ProductForm()
+    # return render(request, 'data_form.html', locals())
+    print(request.method)
+    if request.method == 'GET':
+        product = ProductForm()
+        return render(request, 'data_form.html', locals())
+    else:
+        product = ProductForm(request.POST)
+        if product.is_valid():
+            print(1)
+            name = product['name']
+            canme = product.cleaned_data['name']
+            return HttpResponse('提交成功')
+        else:
+            print(2)
+            error_msg = product.errors.as_json()
+            print(error_msg)
+            return render(request, 'data_form.html', locals())
 
-
-
-
+def model_index(request, id):
+    if request.method == 'GET':
+        instance = Product.objects.filter(id=id)
+        if instance:
+            product = ProductModelForm(instance=instance[0])
+        else:
+            product = ProductModelForm()
+        return render(request, 'data_form.html', locals())
+    else:
+        product = ProductModelForm(request.POST)
+        if product.is_valid():
+            weight = product.cleaned_data['weight']
+            # product.save()
+            product_db = product.save(commit=False)
+            product_db.name = '我的 iPhone'
+            product_db.save()
+            product.save_m2m()
+            return HttpResponse('提交成功！weight 清洗后数据为：'+ weight)
+        else:
+            error_msg = product.errors.as_json()
+            print(error_msg)
+            return render(request, 'data_form.html', locals())
 
 
 

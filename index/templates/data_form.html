@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block body %}
+    {% if product.errors %}
+        <p>数据出错，错误信息：{{ product.errors }}</p>
+    {% else %}
+        <form action="" method="post">
+        {% csrf_token %}
+            <table>
+                {{ product.as_table }}
+            </table>
+            <input type="submit" value="提交">
+        </form>
+    {% endif %}
+
+{% endblock %}

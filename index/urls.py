@@ -17,5 +17,7 @@ urlpatterns = [
     path('index/temp_inherit', views.temp_inherit, name='temp_inherit'),
     path('index/def_filter', views.defined_filter),
     path('index/sql_crud', views.sql_crud),
+    path('index/idx_form', views.idx_form),
+    path('index/<int:id>.html', views.model_index)
 
 ]
