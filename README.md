@@ -36,7 +36,7 @@ while True:
 
 访问 `127.0.0.1:80` 后浏览器显示：
 
-![image-20201111111023751](D:\MyDjango\images\image-20201111111023751.png)
+![image-20201111111023751](MyDjango\images\image-20201111111023751.png)
 
 打印输出：
 
@@ -272,7 +272,7 @@ while True:
 
 浏览器访问 `127.0.0.1/index`
 
-![image-20201111140325805](D:\MyDjango\images\image-20201111140325805.png)
+![image-20201111140325805](MyDjango\images\image-20201111140325805.png)
 
 ### 自定义 Web 框架：返回动态的 HTML 页面
 
